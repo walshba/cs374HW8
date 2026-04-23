@@ -1,5 +1,5 @@
 # CS374 Hotel Database Final Report
-*your names*
+*Brady Walsh, Noah Rice, Joshua Browning*
 
 ## ER Model
 *insert the image here*
