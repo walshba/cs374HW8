@@ -18,9 +18,9 @@
 ## Database creation
 *Link the files here*
 
-- Drop tables: [drop.sql] <!-- (./database/drop.sql) -->
-- Create tables: [create.sql]<!-- (./database/alter.sql) -->
-- Add constraints to tables: [alter.sql]<!-- (./database/alter.sql) -->
+- Drop tables: [drop.sql] (./database/drop.sql)
+- Create tables: [create.sql] (./database/create.sql)
+- Add constraints to tables: [alter.sql] (./database/alter.sql)
 
 *They should be in a subdirectory called database*
 
