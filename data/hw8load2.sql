@@ -121,3 +121,25 @@ INSERT INTO BillingDiscount (bill_id, DiscountID) VALUES
   (1, 1),   -- Gold applied to Bill 1
   (2, 1),   -- Gold applied to Bill 2
   (3, 2);   -- Silver applied to Bill 3
+
+--------------------- HOMEWORK QUERY 1 ADDITIONS ----------------------------
+-- Make July 15-17, 2027 fall within a season for Hotel A / HotelID 1
+INSERT INTO Season (HotelID, Name, StartDate, EndDate)
+VALUES (1, 'Summer2027', '2027-06-01', '2027-08-31');
+
+-- Prices for Hotel 1 room types during Summer 2027
+-- Thursday and Friday are different
+INSERT INTO RoomCost (RoomTypeID, HotelID, SeasonName, DayOfWeek, Price) VALUES
+  (1, 1, 'Summer2027', 'Thursday', 100.00),
+  (1, 1, 'Summer2027', 'Friday',   130.00),
+  (2, 1, 'Summer2027', 'Thursday', 150.00),
+  (2, 1, 'Summer2027', 'Friday',   195.00);
+
+-- Block all Single rooms in Hotel 1, so at least one room type is NOT available.
+INSERT INTO Reservation (ReservationID, HotelID, GuestID, CheckInDate, CheckOutDate, NumberOfRooms)
+VALUES (90, 1, 1, '2027-07-15', '2027-07-17', 3);
+
+INSERT INTO ReservationRoom (ReservationID, HotelID, RoomNumber) VALUES
+  (90, 1, 101),
+  (90, 1, 102),
+  (90, 1, 103);
