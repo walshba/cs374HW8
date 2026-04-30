@@ -3,15 +3,14 @@
 
 ## ER Model
 *insert the image here*
-![conference review EER]<!-- (./images/ConferenceReviewEER.drawio.png) -->
+![Hotel EER]<!-- (./images/ER.png) -->
 *describe any changes since HW7*
 
 ## Relational Model
 *insert the image(s) here*
 
-- Conference Review System: ![conference review relational model]<!-- (./images/ConferenceReviewRelational-mysql.png) -->
-- madiSTEM System: ![madistem relational model - Workbench style]<!-- (./images/madistem-relational.png) -->
-- madiSTEM System (dbdiagram style): ![madistem relational model - dbdiagram style]<!-- (./images/schema.png) -->
+- Hotel System: ![Hotel Relational Model]<!-- (./images/HW8_RelationalModel.png) -->
+
 
 *Describe any changes since HW7*
 
