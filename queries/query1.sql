@@ -16,8 +16,7 @@ WHERE rt.HotelID = 1
 AND NOT EXISTS (
     SELECT *
     FROM ReservationRoom rr
-    JOIN Reservation res
-        ON rr.ReservationID = res.ReservationID
+    JOIN Reservation res ON rr.ReservationID = res.ReservationID
     WHERE rr.HotelID = r.HotelID
     AND rr.RoomNumber = r.RoomNumber
     AND res.CheckInDate < DATE '2027-07-17'
