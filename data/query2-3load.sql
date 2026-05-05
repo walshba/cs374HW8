@@ -36,9 +36,6 @@ VALUES (
     '434-555-1011', '434-555-2011', 1
 );
 
-INSERT INTO Occupant (GuestID, Name)
-VALUES (11, 'Mrs. Smith');
-
 -- Reservation without room assignment yet
 INSERT INTO Reservation (
     ReservationID, HotelID, GuestID,
