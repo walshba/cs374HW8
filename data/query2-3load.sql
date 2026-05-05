@@ -27,29 +27,11 @@ INSERT INTO Stay (ID, ReservationID, GuestID, start_date, end_date, Occupants) V
 INSERT INTO StayRoom (StayID, HotelID, RoomNumber) VALUES
   (4, 2, 201);
 
-INSERT INTO Guest (
-    GID, IdentificationType, IdentificationNumber, Address,
-    HomePhoneNumber, MobilePhoneNumber, DiscountID
-)
-VALUES (
-    11, 'Drivers License', 'VA-11', 'Charlottesville, VA',
-    '434-555-1011', '434-555-2011', 1
-);
-
--- Reservation without room assignment yet
-INSERT INTO Reservation (
-    ReservationID, HotelID, GuestID,
-    CheckInDate, CheckOutDate, NumberOfRooms
-)
-VALUES (
-    13, 2, 11, '2026-04-30', '2026-05-02', 1
-);
-
 INSERT INTO RoomService (RoomServiceID, Cost)
 VALUES (20, 40.00);
 
 INSERT INTO StayRoomService (StayID, RoomServiceID)
-VALUES (5, 20);
+VALUES (4, 20);
 
 UPDATE Stay
 SET end_date = '2026-05-02'
