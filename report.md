@@ -21,7 +21,7 @@
 
 ## Data
 
-- Add some data: [hw8load.sql](./data/hw8load.sql) and [query2-3load.sql](./data/query2-3load.sql) and 
+- Add some data: [hw8load.sql](./data/hw8load.sql) and [query2-3load.sql](./data/query2-3load.sql) and
 
 *Describe any changes very briefly: for example:*
 
@@ -43,7 +43,7 @@ INSERT:
 
 The insert statements add the new VIP guest, create a reservation for that guest, and assign the guest to an available room. These inserts are done together since they all depend on one another. The new reservation is for Hotel 1 from 7/15/2027 to 7/17/2027, and the assigned room is one of the available double rooms.
 
-<!-- ![query 2 ss1](./images/ss1query1.png) -->
+![query 2 ss1](./images/ss1query1.png)
 
 ### Query 2
 [query2.sql](./queries/query2.sql)
@@ -54,7 +54,7 @@ Before this query runs, you need extra rows beyond what hw8load2.sql provides. S
 
 SELECT:
 
-This lists Doubles at Hotel 2 that are not occupuied. The NOT EXISTS subquery helps here by seeing if the room is in any current stay record. If it is then it is excluded. Reservations on their own do not disqualify a certain room the specific stay of checking in physically does. The picture below shows the two rooms in hotel 2 that are Doubles and are not occupied. 
+This lists Doubles at Hotel 2 that are not occupuied. The NOT EXISTS subquery helps here by seeing if the room is in any current stay record. If it is then it is excluded. Reservations on their own do not disqualify a certain room the specific stay of checking in physically does. The picture below shows the two rooms in hotel 2 that are Doubles and are not occupied.
 
 ![query 2 ss1](./images/ss1query2.png)
 
@@ -66,9 +66,9 @@ Mr.Smith is added as an occupant under Guest 11. The ReservationRoom binds the r
 
 
 ### Query 3
-[query3.sql](./queries/query3.sql)
+![query 3 ss1](./images/ss4query3.png)
 
-*Describe the queries in detail with screenshots of setup and results*
+The query calculates Mr. and Mrs. Smith's final bill by summing room costs across both nights of the stay, adding their room service charges, and applying their discount. Room pricing varies by day of the week and is constrained to a single season. The query also records checkout by finalizing the stay and creating a billing record. The final output includes the stay period, room type, extra services used, and total cost after discount.
 
 ### Query 4
 [query4.sql](./queries/query4.sql)
@@ -81,7 +81,7 @@ SELECT:
 
 This query finds the people connected to a specific room on a specific date. It uses Stay and StayRoom to find which stay was assigned to that room. The date condition checks that the selected date falls within the stay's start and end dates. Then the query uses the guest ID from the stay to find the occupant names connected to that guest. The screenshot below shows the people connected to the selected room on that date.
 
-<!-- ![query 4 ss1](./images/ss1query4.png) -->
+![query 4 ss1](./images/ss1query4.png)
 
 ### Query 5
 [query5.sql](./queries/query5.sql)
@@ -89,7 +89,7 @@ This query finds the people connected to a specific room on a specific date. It 
 SETUP:
 
 We do not need to insert any more columns because we have guests with 2+ reservations across 2+ different hotels.
-The Billing row is also already loaded (Bills 1, 2, totaling $953, $747.50) attach to these same guests, 
+The Billing row is also already loaded (Bills 1, 2, totaling $953, $747.50) attach to these same guests,
 so the spend column will populate.
 
 The structure of this query has 4 steps:
@@ -97,7 +97,7 @@ The structure of this query has 4 steps:
 params - Sets the dates frame from 6/15/2025 - 6/14/2026
 
 guest_reservations - Only picks guests reservations and counts
-the distinct hotels per guest in the window of dates. 
+the distinct hotels per guest in the window of dates.
 
 qualifying_guests - Only allows guests with at least 2 reservations and at least 2 distinc hotels within the time frame.
 
