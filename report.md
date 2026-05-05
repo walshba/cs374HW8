@@ -31,7 +31,19 @@
 
 [query1.sql](./queries/query1.sql)
 
-*Describe the queries in detail with screenshots of the data setup and the results*
+Setup:
+
+Before this query runs, extra rows need to be added beyond what is already there. Hotel 1 needs pricing for the requested stay dates from 7/15/2027 to 7/17/2027/ The added data makes also single rooms at Hotel 1 unavailable during those dates so that at least one room type is unavailable. the prices are different across the two nights because one night is Thursday vs Friday.
+
+SELECT:
+
+This lists the room types at Hotel 1 that are available for the requested stay. The query checks rooms against existing reservations using a NOT EXISTS query. If a room already has an overlapping reservation, then that room is excluded. The query then groups by room type and calcuates average cost per night.
+
+INSERT:
+
+The insert statements add the new VIP guest, create a reservation for that guest, and assign the guest to an available room. These inserts are done together since they all depend on one another. The new reservation is for Hotel 1 from 7/15/2027 to 7/17/2027, and the assigned room is one of the available double rooms.
+
+<!-- ![query 2 ss1](./images/ss1query1.png) -->
 
 ### Query 2
 [query2.sql](./queries/query2.sql)
@@ -61,7 +73,15 @@ Mr.Smith is added as an occupant under Guest 11. The ReservationRoom binds the r
 ### Query 4
 [query4.sql](./queries/query4.sql)
 
-*Describe the queries in detail with screenshots of setup and results*
+Setup:
+
+Before this query runs, the database needs to have a stay connected to a specific room through StayRoom, and that stay needs to have at least two people connected to it. In this case, the selected room has Mr. and Mrs. Smith connected to the stay, so the query can return both the person who reserved the room and at least one occupant.
+
+SELECT:
+
+This query finds the people connected to a specific room on a specific date. It uses Stay and StayRoom to find which stay was assigned to that room. The date condition checks that the selected date falls within the stay's start and end dates. Then the query uses the guest ID from the stay to find the occupant names connected to that guest. The screenshot below shows the people connected to the selected room on that date.
+
+<!-- ![query 4 ss1](./images/ss1query4.png) -->
 
 ### Query 5
 [query5.sql](./queries/query5.sql)

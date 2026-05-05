@@ -1,23 +1,23 @@
 SELECT rt.RoomTypeID, rt.Size AS room_type, rt.Capacity, COUNT(DISTINCT r.RoomNumber) AS available_rooms, ROUND(AVG(rc.Price * (1 - cd.DiscountAmount / 100)), 2) AS average_cost_per_night
 FROM RoomType rt
 JOIN Room r ON rt.RoomTypeID = r.RoomTypeID
+JOIN Season s ON s.HotelID = rt.HotelID
+JOIN RoomCost rc ON rc.RoomTypeID = rt.RoomTypeID
+    AND rc.HotelID = rt.HotelID
+    AND rc.SeasonName = s.Name
 JOIN (
     SELECT DATE '2027-07-15' AS stay_date, 'Thursday' AS day_of_week
     UNION ALL
     SELECT DATE '2027-07-16' AS stay_date, 'Friday' AS day_of_week
-) AS nights ON 1 = 1
-JOIN Season s ON s.HotelID = rt.HotelID
+) AS nights ON rc.DayOfWeek = nights.day_of_week
     AND nights.stay_date BETWEEN s.StartDate AND s.EndDate
-JOIN RoomCost rc ON rc.RoomTypeID = rt.RoomTypeID
-    AND rc.HotelID = rt.HotelID
-    AND rc.SeasonName = s.Name
-    AND rc.DayOfWeek = nights.day_of_week
 JOIN CategoryDiscount cd ON cd.DiscountType = 'Gold'
 WHERE rt.HotelID = 1
 AND NOT EXISTS (
     SELECT *
     FROM ReservationRoom rr
-    JOIN Reservation res ON rr.ReservationID = res.ReservationID
+    JOIN Reservation res
+        ON rr.ReservationID = res.ReservationID
     WHERE rr.HotelID = r.HotelID
     AND rr.RoomNumber = r.RoomNumber
     AND res.CheckInDate < DATE '2027-07-17'
