@@ -66,6 +66,11 @@ Mr.Smith is added as an occupant under Guest 11. The ReservationRoom binds the r
 
 
 ### Query 3
+
+Setup:
+
+Before the query runs, rows for Mr. and Mrs. Smith's checkout need to be setup. A room service charge is added and linked to their stay. Then a billing record is created, and a discount is applied through a BillingDiscount.
+
 ![query 3 ss1](./images/ss4query3.png)
 
 The query calculates Mr. and Mrs. Smith's final bill by summing room costs across both nights of the stay, adding their room service charges, and applying their discount. Room pricing varies by day of the week and is constrained to a single season. The query also records checkout by finalizing the stay and creating a billing record. The final output includes the stay period, room type, extra services used, and total cost after discount.
